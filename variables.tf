@@ -1,3 +1,8 @@
+variable "aws_region" {
+  description = "The AWS region to deploy resources in"
+  type        = string
+}
+
 variable "web_acl_name" {
   description = "The name of the Web ACL"
   type        = string
@@ -8,9 +13,14 @@ variable "web_acl_description" {
   type        = string
 }
 
-variable "rate_limit" {
-  description = "The rate limit for rate limiting"
-  type        = number
+variable "api_gateway_name" {
+  description = "The name of the API Gateway"
+  type        = string
+}
+
+variable "api_gateway_description" {
+  description = "The description of the API Gateway"
+  type        = string
 }
 
 variable "stage_name" {
@@ -18,12 +28,17 @@ variable "stage_name" {
   type        = string
 }
 
-variable "rest_api_id" {
-  description = "The ID of the API Gateway REST API"
+variable "rule_configurations" {
+  description = "A list of maps containing the configuration for each rule"
+  type        = list(map(string))
+}
+
+variable "instance_type" {
+  description = "The type of EC2 instance"
   type        = string
 }
 
-variable "deployment_id" {
-  description = "The ID of the API Gateway deployment"
+variable "subnet_id" {
+  description = "The ID of the subnet for the EC2 instance"
   type        = string
 }
